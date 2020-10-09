@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DiscordChatExporter.Domain.Discord.Models;
+using DiscordChatExporter.Domain.Exporting.Writers;
+using System;
 using System.IO;
 using System.Threading.Tasks;
-using DiscordChatExporter.Domain.Discord.Models;
-using DiscordChatExporter.Domain.Exporting.Writers;
 
 namespace DiscordChatExporter.Domain.Exporting
 {
@@ -103,6 +103,7 @@ namespace DiscordChatExporter.Domain.Exporting
                 ExportFormat.HtmlDark => new HtmlMessageWriter(stream, context, "Dark"),
                 ExportFormat.HtmlLight => new HtmlMessageWriter(stream, context, "Light"),
                 ExportFormat.Json => new JsonMessageWriter(stream, context),
+                ExportFormat.SQL => new SQLMessageWriter(stream, context),
                 _ => throw new ArgumentOutOfRangeException(nameof(format), $"Unknown export format '{format}'.")
             };
         }

@@ -8,7 +8,8 @@ namespace DiscordChatExporter.Domain.Exporting
         HtmlDark,
         HtmlLight,
         Csv,
-        Json
+        Json,
+        SQL
     }
 
     public static class ExportFormatExtensions
